@@ -16,19 +16,27 @@
                 console.log("websocket closed");
             }
 
-            // var btn = document.getElementById("sendrml-ws");
-            // btn.addEventListener('click',function(e){
-            //     console.log("send rml");
-            //     ws.send("rml text here");
-            // });
-    };
+	    function parseMsg(var msg){
+		var name = msg.split(" ");
+		var action = msg.split(" ");
+	    }
 
+    };
     </script>
+    <style>
+    .member {
+	width: 150px;
+	height: 300px;
+	background-color: gray;
+    }
+
+    </style>
+
 </head>
 <body>
-
-    <!-- <button id="sendrml&#45;ws">send rml</button> -->
-    testst
+  <div class="member">
+	  hoge
+  </div>
 
 </body>
 </html>

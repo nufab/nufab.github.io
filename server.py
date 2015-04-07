@@ -17,6 +17,9 @@ class MainHandler(tornado.web.RequestHandler):
     self.write("websocket relay server working...")
 
 class WSHandler(tornado.websocket.WebSocketHandler):
+    def check_origin(self, origin):  
+        return True
+
     def open(self):
         print("ws opened")
         clients.append(self)
