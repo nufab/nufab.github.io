@@ -6,7 +6,7 @@ from tornado.ioloop import PeriodicCallback
 
 from tornado.options import define, options, parse_command_line
 
-define("port", default = 8080, help = "run on the given port", type = int)
+define("port", default = 7231, help = "run on the given port", type = int)
 
 class SendWebSocket(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -17,6 +17,7 @@ class SendWebSocket(tornado.websocket.WebSocketHandler):
         name = message.split(" ")[0]
         action = message.split(" ")[1]
         print name, action
+	self.write_message(message) #echo
 
     def on_close(self):
         print "WebSocket closed"

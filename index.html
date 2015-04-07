@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title></title>
     <script>
-      var connection = new WebSocket('ws://133.242.160.150/ws', ['soap', 'xmpp']);
+      var connection = new WebSocket('ws://133.242.160.150:7231/ws', ['soap', 'xmpp']);
       connection.onopen = function () {
-        connection.send('Ping'); // Send the message 'Ping' to the server
+        // connection.send('Ping'); // Send the message 'Ping' to the server
       };
       connection.onerror = function (error) {
         console.log('WebSocket Error ' + error);
