@@ -17,7 +17,7 @@
                 console.log("websocket opened");
             };
             ws.onmessage = function (evt) {
-               console.log("data received: "+evt.data);
+               // console.log("data received: "+evt.data);
 	       parseMsg(evt.data);
             };
             ws.onclose = function(){
@@ -28,6 +28,8 @@
                 console.log("parsing");
 		var name = msg.split(" ");
 		var action = msg.split(" ");
+		console.log(name);
+		console.log(action);
 		if(action=="in"){
 		  eval(name).style.backgroundColor = 'red';
 		  } else if(action=="out"){
