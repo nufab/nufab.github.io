@@ -30,8 +30,10 @@
 		console.log(name+", "+action);
 		if(action=="in"){
 		  eval(name).style.backgroundColor = '#ff6fcf';
+		  document.querySelector(eval(name)+" .indicator").innerHTML="在室";
 		  } else if(action=="out"){
 		  eval(name).style.backgroundColor = '#66ccff';
+		  document.querySelector(eval(name)+" .indicator").innerHTML="不在";
 	         }
 	    }
 
