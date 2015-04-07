@@ -1,33 +1,41 @@
-import time
 import tornado.ioloop
 import tornado.web
 import tornado.websocket
-from tornado.ioloop import PeriodicCallback
+import tornado.template
+import threading
+from ws4py.client.tornadoclient import TornadoWebSocketClient
 
-from tornado.options import define, options, parse_command_line
+clients = []
+port = 7231 
 
-define("port", default = 7231, help = "run on the given port", type = int)
+def send_to_all_clients(message):
+    for client in clients:
+        client.write_message(message)
 
-class SendWebSocket(tornado.websocket.WebSocketHandler):
+class MainHandler(tornado.web.RequestHandler):
+  def get(self):
+    self.write("websocket relay server working...")
+
+class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
-        self.i = 0
-        print "WebSocket opened" 
+        print("ws opened")
+        clients.append(self)
 
-    def on_message(self, message):
-        name = message.split(" ")[0]
-        action = message.split(" ")[1]
-        print name, action
-	self.write_message(message) #echo
+    def on_message(self,message):
+        print "bypassing data received:",message
+        # self.write_message(message)
+        send_to_all_clients(message)
 
     def on_close(self):
-        print "WebSocket closed"
+        print("ws closed")
+        clients.remove(self)
 
-app = tornado.web.Application([
-    (r"/ws", SendWebSocket),
+application = tornado.web.Application([
+  (r'/ws', WSHandler),
+  (r'/', MainHandler),
 ])
 
 if __name__ == "__main__":
-    parse_command_line()
-    app.listen(options.port)
-    tornado.ioloop.IOLoop.instance().start()
-
+  application.listen(port)
+  print "server started at "+str(port)
+  tornado.ioloop.IOLoop.instance().start()

@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title></title>
     <script>
-      var connection = new WebSocket('ws://133.242.160.150:7231/ws', ['soap', 'xmpp']);
-      connection.onopen = function () {
-        // connection.send('Ping'); // Send the message 'Ping' to the server
-      };
-      connection.onerror = function (error) {
-        console.log('WebSocket Error ' + error);
-      };
-      connection.onmessage = function (e) {
-        console.log('Server: ' + e.data);
-      };
+    window.onload = function(){
+            var ws = new WebSocket("ws://133.242.160.150:9090/ws");
+            ws.onopen = function() {
+                console.log("websocket opened");
+            };
+            ws.onmessage = function (evt) {
+               console.log("data received: "+evt.data);
+            };
+            var btn = document.getElementById("sendrml-ws");
+            btn.addEventListener('click',function(e){
+                console.log("send rml");
+                ws.send("rml text here");
+            });
+            ws.onclose = function(){
+                console.log("websocket closed");
+            }
+    };
 
     </script>
-  </head>
-  <body>
+</head>
+<body>
 
-  </body>
+    <button id="sendrml-ws">send rml</button>
+
+</body>
 </html>
