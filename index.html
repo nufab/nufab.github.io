@@ -29,9 +29,9 @@
 		var name = msg.split(" ")[0];
 		var action = msg.split(" ")[1];
 		if(action=="in"){
-		  eval(name).style.backgroundColor = 'red';
+		  eval(name).style.backgroundColor = '#ff6fcf';
 		  } else if(action=="out"){
-		  eval(name).style.backgroundColor = 'blue';
+		  eval(name).style.backgroundColor = '66ccff';
 	         }
 	    }
 
@@ -53,6 +53,16 @@
 	height: 600px;
 	clear: both;
     }
+    .name{
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 13px;
+    }
+    .indicator {
+	margin-top: 70px;
+	margin-left: 30px;
+	font-size: 20px;
+    }
 
     </style>
 
@@ -60,22 +70,28 @@
 <body>
    <div class="container">
      <div class="member" id="susu">
-         susu 
+	     <p class="name">susu </p>
+	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="masuda">
-           masuda 
+	     <p class="name">masuda </p>
+	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="aoki">
-           aoki 
+	     <p class="name">aoki </p>
+	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="ohno">
-           ohno 
+	     <p class-"name">ohno </p>
+	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="masumori">
-           masumori 
+	     <p class="name">masumori</p>
+	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="fujiyoshi">
-           fujiyoshi 
+	     <p class=name">fujiyoshi </p>
+	     <p class="indicator">不在</p>
      </div>
   </div>
 
