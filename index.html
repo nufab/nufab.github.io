@@ -5,6 +5,13 @@
     <title></title>
     <script>
     window.onload = function(){
+	    var susu = document.querySelector("#susu");
+	    var masuda = document.querySelector("#masuda");
+	    var aoki = document.querySelector("#aoki");
+	    var ohno = document.querySelector("#ohno");
+	    var masumori = document.querySelector("#masumori");
+	    var fujiyoshi = document.querySelector("#fujiyoshi");
+
             var ws = new WebSocket("ws://133.242.160.150:7231/ws");
             ws.onopen = function() {
                 console.log("websocket opened");
@@ -19,6 +26,11 @@
 	    function parseMsg(msg){
 		var name = msg.split(" ");
 		var action = msg.split(" ");
+		if(action=="in"){
+		  eval(name).style.backgroundColor = 'red';
+		  } else if(action=="out"){
+		  eval(name).style.backgroundColor = 'blue';
+	         }
 	    }
 
     };
@@ -30,7 +42,7 @@
 	margin-top: 30px;
 	width: 150px;
 	height: 200px;
-	background-color: #ccff66;
+	background-color: #66ccff;
     }
     .container {
 	margin-top: 30px;
@@ -45,22 +57,22 @@
 </head>
 <body>
    <div class="container">
-     <div class="member">
-           susu 
+     <div class="member" id="susu">
+         susu 
      </div>
-     <div class="member">
+     <div class="member" id="masuda">
            masuda 
      </div>
-     <div class="member">
+     <div class="member" id="aoki">
            aoki 
      </div>
-     <div class="member">
+     <div class="member" id="ohno">
            ohno 
      </div>
-     <div class="member">
+     <div class="member" id="masumori">
            masumori 
      </div>
-     <div class="member">
+     <div class="member" id="fujiyoshi">
            fujiyoshi 
      </div>
   </div>
