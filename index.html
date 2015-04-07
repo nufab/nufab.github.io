@@ -25,13 +25,13 @@
             }
 
 	    var parseMsg = function(msg){
-                console.log("parsing");
 		var name = msg.split(" ")[0];
 		var action = msg.split(" ")[1];
+		console.log(name+", "+action);
 		if(action=="in"){
 		  eval(name).style.backgroundColor = '#ff6fcf';
 		  } else if(action=="out"){
-		  eval(name).style.backgroundColor = '66ccff';
+		  eval(name).style.backgroundColor = '#66ccff';
 	         }
 	    }
 
@@ -56,7 +56,7 @@
     .name{
 	margin-top: 10px;
 	margin-left: 10px;
-	font-size: 13px;
+	font-size: 15px;
     }
     .indicator {
 	margin-top: 70px;
@@ -82,7 +82,7 @@
 	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="ohno">
-	     <p class-"name">ohno </p>
+	     <p class="name">ohno </p>
 	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="masumori">
@@ -90,7 +90,7 @@
 	     <p class="indicator">不在</p>
      </div>
      <div class="member" id="fujiyoshi">
-	     <p class=name">fujiyoshi </p>
+	     <p class="name">fujiyoshi </p>
 	     <p class="indicator">不在</p>
      </div>
   </div>
