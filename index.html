@@ -26,10 +26,8 @@
 
 	    var parseMsg = function(msg){
                 console.log("parsing");
-		var name = msg.split(" ");
-		var action = msg.split(" ");
-		console.log(name);
-		console.log(action);
+		var name = msg.split(" ")[0];
+		var action = msg.split(" ")[1];
 		if(action=="in"){
 		  eval(name).style.backgroundColor = 'red';
 		  } else if(action=="out"){
