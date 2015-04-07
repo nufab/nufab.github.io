@@ -12,21 +12,23 @@
             ws.onmessage = function (evt) {
                console.log("data received: "+evt.data);
             };
-            var btn = document.getElementById("sendrml-ws");
-            btn.addEventListener('click',function(e){
-                console.log("send rml");
-                ws.send("rml text here");
-            });
             ws.onclose = function(){
                 console.log("websocket closed");
             }
+
+            // var btn = document.getElementById("sendrml-ws");
+            // btn.addEventListener('click',function(e){
+            //     console.log("send rml");
+            //     ws.send("rml text here");
+            // });
     };
 
     </script>
 </head>
 <body>
 
-    <button id="sendrml-ws">send rml</button>
+    <!-- <button id="sendrml&#45;ws">send rml</button> -->
+    testst
 
 </body>
 </html>
