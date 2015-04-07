@@ -24,7 +24,8 @@
                 console.log("websocket closed");
             }
 
-	    function parseMsg(msg){
+	    var parseMsg = function(msg){
+                console.log("parsing");
 		var name = msg.split(" ");
 		var action = msg.split(" ");
 		if(action=="in"){
