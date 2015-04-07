@@ -18,6 +18,7 @@
             };
             ws.onmessage = function (evt) {
                console.log("data received: "+evt.data);
+	       parseMsg(evt.data);
             };
             ws.onclose = function(){
                 console.log("websocket closed");
